@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+//import statements
+import React from "react";
+import Blocks from "./Block";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import Transactions from "./Transactions";
+import Transfer from "./Transfer";
+import Navigation from "./Navigation";
 
+//using Navigation and showing path to other components
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div class="font-p">
+        <Navigation /> 
+        <Switch>
+          <Route path="/" exact component={Blocks} />
+          <Route path="/transactions" component={Transactions} />
+          <Route path="/transfer" component={Transfer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
